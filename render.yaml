@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: fixmyuae-ai
+    runtime: node
+    plan: free
+    buildCommand: bun install && bun run build
+    startCommand: bun run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: AI_ALLOWED_ORIGINS
+        value: https://kevinantonakhil-coder.github.io
+      - key: FIREBASE_PROJECT_ID
+        value: boxwood-badge-39pl1
+      - key: FIREBASE_DATABASE_ID
+        value: ai-studio-fixmyrak-8970734b-ae12-4b60-947f-c731f1bfb7cd
